@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ws-deployment
+spec:
+  replicas: 2 
+  selector:
+    matchLabels:
+      app: ws-server
+  template:
+    metadata:
+      labels:
+        app: ws-server
+    spec:
+      containers:
+        - name: websocket-server
+          image: anshbalar429/ws-server:latest
+          imagePullPolicy: IfNotPresent 
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "150m"
+            limits:
+              cpu : "300m"
+
+  
