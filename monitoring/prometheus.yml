@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: ws-servicemonitor
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack   
+spec:
+  selector:
+    matchLabels:
+      app: ws-server                
+  namespaceSelector:
+    matchNames:
+      - default # Currently our ws-service is running in default namespace                     
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 15s
+      scrapeTimeout: 10s
