@@ -1,8 +1,11 @@
-# DevOps Intern Task - WebSocket Server with Load Testing
+# WebSocket Server with Load Testing
 
 ## Overview
 
 This project implements a WebSocket server with comprehensive DevOps practices including containerization, Kubernetes deployment, auto-scaling, observability, and load testing. The server provides real-time messaging capabilities with Prometheus metrics and is designed to handle high-load scenarios with graceful scaling.
+
+## K8S deployments
+![img](image-1.png)
 
 ## Prerequisites
 
@@ -39,4 +42,3 @@ The server will be available at `ws://localhost:8080`
 k6 run loadtest/websocket-test.js
 ```
 
-For questions or issues, please reachout to HR.
